@@ -1,4 +1,4 @@
-import { DefaultSession, NextAuthOptions } from "next-auth"
+import { DefaultSession, getServerSession, NextAuthOptions } from "next-auth"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { prisma } from "./db"
 import GoogleProvider from 'next-auth/providers/google'
@@ -26,16 +26,16 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         jwt: async ({ token }) => {
             const db_user = await prisma.user.findFirst({
-                     where: {
-                email: token?.email
-            },
+                where: {
+                    email: token?.email
+                },
 
             })
             
             if (db_user) {
                 token.id = db_user.id
             }
-            return token      
+            return token
         },
         session: ({ session, token }) => {
             if (token) {
@@ -61,4 +61,8 @@ export const authOptions: NextAuthOptions = {
         }),
         
     ]
+};
+
+export const getAuthSession = () => {
+    return getServerSession(authOptions);
 }
