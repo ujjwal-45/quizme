@@ -1,4 +1,5 @@
 import { DefaultSession, getServerSession, NextAuthOptions } from "next-auth"
+import { type GetServerSidePropsContext } from "next"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { prisma } from "./db"
 import GoogleProvider from 'next-auth/providers/google'
@@ -23,6 +24,7 @@ export const authOptions: NextAuthOptions = {
     session: {
         strategy: 'jwt'
     },
+    secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         jwt: async ({ token }) => {
             const db_user = await prisma.user.findFirst({
@@ -47,12 +49,12 @@ export const authOptions: NextAuthOptions = {
             return session
         }
     },
-    secret: process.env.NEXTAUTH_SECRET,
+    
     adapter: PrismaAdapter(prisma),
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }),
         TwitterProvider({
             clientId: process.env.TWITTER_CLIENT_ID!,
