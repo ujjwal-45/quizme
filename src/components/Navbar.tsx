@@ -3,6 +3,7 @@ import { getAuthSession } from '@/lib/nextauth'
 import Link from 'next/link'
 
 import SignInButton from './SignInButton'
+import { ThemeToggle } from './ThemeToggle'
 
 import UserAccountNav from './UserAccountNav'
 
@@ -23,6 +24,7 @@ const Navbar = async () => {
                     </p>
                         
                 </Link>
+            
                 <div className='flex items-center bg-zinc-900 '>
                     {session?.user ? (
                     <UserAccountNav user={session.user} />
