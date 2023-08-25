@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={cn("antialiased min-h-screen pt-10", poppin.className)}>
+    <html lang="en" >
+      <body className={cn("antialiased min-h-screen pt-10 ", poppin.className)}>
         <Providers>
           
            <Navbar />
