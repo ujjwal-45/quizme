@@ -1,5 +1,7 @@
-import HistoryCard from '@/components/HistoryCard';
-import QuizmeCard from '@/components/QuizmeCard';
+import HistoryCard from '@/app/dashboard/HistoryCard';
+import HotTopics from '@/app/dashboard/HotTopics';
+import QuizmeCard from '@/app/dashboard/QuizmeCard';
+import RecentsActivity from '@/app/dashboard/RecentsActivity';
 import React from 'react'
 
 type Props = {};
@@ -20,7 +22,8 @@ const Dashboard = (props: Props) => {
           </div>
 
           <div className='grid gap-4 mt-4 md:grid-cols-2 lg:grid-cols-7'>
-              
+              <HotTopics />
+              <RecentsActivity />
           </div>
       </main>
   )
