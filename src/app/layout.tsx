@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" >
-      <body className={cn("antialiased min-h-screen pt-10 ", poppin.className)}>
+      <body className={cn("antialiased min-h-screen pt-10  ", poppin.className)}>
         <Providers>
           
            <Navbar />
