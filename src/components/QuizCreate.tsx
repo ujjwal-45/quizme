@@ -98,10 +98,10 @@ const QuizCreate = (props: Props) => {
                               <Button
                                   type="button"
                                    onClick={() => {
-                                      form.setValue("type", "open-ended");
+                                      form.setValue("type", "open_ended");
                                   }}
                                   variant={
-                                      form.getValues("type") === "open-ended" ? "default" : "secondary"
+                                      form.getValues("type") === "open_ended" ? "default" : "secondary"
                                   }
                                   className='w-1/2 rounded-none rounded-r-lg'>
                                   <BookOpen className='w-4 h-4 mr-2' />
