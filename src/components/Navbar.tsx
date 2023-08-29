@@ -3,7 +3,6 @@ import { getAuthSession } from '@/lib/nextauth'
 import Link from 'next/link'
 
 import SignInButton from './SignInButton'
-import { ThemeToggle } from './ThemeToggle'
 
 import UserAccountNav from './UserAccountNav'
 
